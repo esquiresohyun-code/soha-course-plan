@@ -31,7 +31,6 @@
         .box-red { border-top: 4px solid #e53e3e; background: #fff5f5; } .box-red .value { color: #e53e3e; }
         .box-green { border-top: 4px solid #38a169; background: #f0fff4; } .box-green .value { color: #38a169; }
 
-        /* 범례 */
         .legend { background: white; border-radius: 12px; padding: 14px 20px; margin-bottom: 20px; border: 1px solid #e2e8f0; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 0.81rem; }
         .legend-title { font-weight: 700; color: #4a5568; margin-right: 2px; }
         .legend-item { display: flex; align-items: center; gap: 4px; color: #4a5568; }
@@ -62,10 +61,8 @@
 
         .subject-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 5px; }
 
-        /* 과목 행 */
         .sub-item { display: flex; align-items: center; font-size: 0.79rem; cursor: pointer; padding: 6px 8px; border-radius: 6px; transition: 0.1s; background: white; border: 1px solid #e2e8f0; line-height: 1.3; }
         .sub-item:hover { background: #ebf8ff; border-color: #90cdf4; }
-
         .sub-item input { margin-right: 8px; width: 14px; height: 14px; accent-color: #3182ce; cursor: pointer; flex-shrink: 0; }
         .sub-name { flex: 1; font-weight: 500; }
         .tags { display: flex; gap: 3px; flex-wrap: wrap; margin-left: 5px; justify-content: flex-end; }
@@ -78,7 +75,6 @@
         @keyframes fadein { from {bottom:0;opacity:0} to {bottom:30px;opacity:1} }
         @keyframes fadeout { from {bottom:30px;opacity:1} to {bottom:0;opacity:0} }
 
-        /* 모바일 최적화 */
         @media (max-width: 768px) {
             .header { flex-direction: column; align-items: flex-start; gap: 10px; }
             .header h1 { font-size: 1.3rem; }
@@ -168,7 +164,6 @@
                             <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">중국어</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
                             <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">일본어</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
                             <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">한문</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            
                             <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">온마을캠퍼스1</span></label>
                         </div>
                     </div>
@@ -200,7 +195,6 @@
                             <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">중국어 회화</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
                             <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">일본어 회화</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
                             <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">한문 고전 읽기</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            
                             <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">온마을캠퍼스2</span></label>
                         </div>
                     </div>
@@ -234,7 +228,6 @@
                             <label class="sub-item"><input type="checkbox" value="3" data-group="3_1_t3"><span class="sub-name">화학 반응의 세계</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
                             <label class="sub-item"><input type="checkbox" value="3" data-group="3_1_t3"><span class="sub-name">생물의 유전</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
                             <label class="sub-item"><input type="checkbox" value="3" data-group="3_1_t3"><span class="sub-name">행성우주과학</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            
                             <label class="sub-item"><input type="checkbox" value="3" data-group="3_1_t3"><span class="sub-name">온마을캠퍼스1</span></label>
                         </div>
                     </div>
@@ -285,7 +278,6 @@
                             <label class="sub-item"><input type="checkbox" value="3" data-group="3_2_t3"><span class="sub-name">융합과학 탐구</span><span class="tags"><span class="tag tag-g5n">5단계</span></span></label>
                             <label class="sub-item"><input type="checkbox" value="3" data-group="3_2_t3"><span class="sub-name">과학의 역사와 문화</span><span class="tags"><span class="tag tag-g5n">5단계</span></span></label>
                             <label class="sub-item"><input type="checkbox" value="3" data-group="3_2_t3"><span class="sub-name">기후변화와 환경생태</span><span class="tags"><span class="tag tag-g5n">5단계</span></span></label>
-                            
                             <label class="sub-item"><input type="checkbox" value="3" data-group="3_2_t3"><span class="sub-name">온마을캠퍼스2</span></label>
                         </div>
                     </div>
@@ -326,29 +318,14 @@
 <div id="toast">✅ 과목 선택 계획이 저장되었습니다.</div>
 
 <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzn-NzLn6-lIWy5x5kxwjez-n5IGm9pdu-f2aye7PvsNnsn0s1-eHHF2eTr3W_5zGGUvA/exec';
+
     window.onload = () => {
         document.querySelectorAll('input[type="checkbox"]').forEach(el => {
             el.onchange = calculateCredits;
         });
-        loadData();
-    };
-
-    function loadData() {
-        let data = { name:"", career:"", sub:[], time:"기록 없음" };
-        try {
-            const saved = localStorage.getItem('soha_course_plan_2026');
-            if (saved) data = JSON.parse(saved);
-        } catch(e) {}
-
-        document.getElementById("studentNameInput").value = data.name || "";
-        document.getElementById("careerInput").value = data.career || "";
-        document.getElementById("saveTime").textContent = data.time || "기록 없음";
-        
-        document.querySelectorAll('input[type="checkbox"]').forEach((cb, idx) => {
-            cb.checked = data.sub.includes(idx);
-        });
         calculateCredits();
-    }
+    };
 
     function calculateCredits() {
         let kme = 66, liberal = 0;
@@ -360,7 +337,7 @@
 
         document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
             const val = parseInt(cb.value);
-            if (cb.dataset.kme)    kme += val;
+            if (cb.dataset.kme) kme += val;
             if (cb.dataset.lib === 'y') liberal += val;
             if (cb.dataset.group && groups[cb.dataset.group] !== undefined)
                 groups[cb.dataset.group]++;
@@ -381,48 +358,47 @@
             const max = parseInt(counter.dataset.max);
             const current = groups[groupId];
             counter.textContent = `${current} / ${max}`;
-            if (current === max)          counter.className = "counter success";
+            if (current === max)        counter.className = "counter success";
             else if (current > max || (current > 0 && current < max))
-                                          counter.className = "counter error";
-            else                          counter.className = "counter";
+                                        counter.className = "counter error";
+            else                        counter.className = "counter";
         });
     }
 
-async function saveData() {
-  const SCRIPT_URL = https://script.google.com/macros/s/AKfycbzn-NzLn6-lIWy5x5kxwjez-n5IGm9pdu-f2aye7PvsNnsn0s1-eHHF2eTr3W_5zGGUvA/exec
-  const name = document.getElementById("studentNameInput").value.trim() || "학생";
-  const career = document.getElementById("careerInput").value.trim();
+    async function saveData() {
+        const name = document.getElementById("studentNameInput").value.trim() || "학생";
+        const career = document.getElementById("careerInput").value.trim();
 
-  // 선택된 과목 이름 수집
-  const subjects = [];
-  document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
-    const nameEl = cb.closest('label').querySelector('.sub-name');
-    if (nameEl) subjects.push(nameEl.textContent.trim());
-  });
+        const subjects = [];
+        document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+            const nameEl = cb.closest('label').querySelector('.sub-name');
+            if (nameEl) subjects.push(nameEl.textContent.trim());
+        });
 
-  // 학점 계산
-  let kme = 66, liberal = 0;
-  document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
-    if (cb.dataset.kme) kme += parseInt(cb.value);
-    if (cb.dataset.lib === 'y') liberal += parseInt(cb.value);
-  });
+        let kme = 66, liberal = 0;
+        document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+            if (cb.dataset.kme) kme += parseInt(cb.value);
+            if (cb.dataset.lib === 'y') liberal += parseInt(cb.value);
+        });
 
-  const data = {
-    time: new Date().toLocaleString('ko-KR'),
-    name, career, subjects, kme, liberal
-  };
+        const data = {
+            time: new Date().toLocaleString('ko-KR'),
+            name, career, subjects, kme, liberal
+        };
 
-  try {
-    await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify(data)
-    });
-    document.getElementById("saveTime").textContent = data.time;
-    alert(name + '님의 선택이 구글 시트에 저장되었습니다!');
-  } catch(e) {
-    alert('저장 실패. 인터넷 연결을 확인해 주세요.');
-  }
-}
+        try {
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            document.getElementById("saveTime").textContent = data.time;
+            alert(name + '님의 선택이 구글 시트에 저장되었습니다!');
+        } catch(e) {
+            alert('저장 실패. 인터넷 연결을 확인해 주세요.');
+        }
+    }
 </script>
 </body>
 </html>
