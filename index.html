@@ -324,8 +324,23 @@
         document.querySelectorAll('input[type="checkbox"]').forEach(el => {
             el.onchange = calculateCredits;
         });
+        loadLocal();
         calculateCredits();
     };
+
+    function loadLocal() {
+        try {
+            const saved = localStorage.getItem('soha_course_plan_2026');
+            if (!saved) return;
+            const data = JSON.parse(saved);
+            if (data.name) document.getElementById("studentNameInput").value = data.name;
+            if (data.career) document.getElementById("careerInput").value = data.career;
+            if (data.time) document.getElementById("saveTime").textContent = data.time;
+            document.querySelectorAll('input[type="checkbox"]').forEach((cb, idx) => {
+                cb.checked = data.sub && data.sub.includes(idx);
+            });
+        } catch(e) {}
+    }
 
     function calculateCredits() {
         let kme = 66, liberal = 0;
@@ -386,6 +401,20 @@
             name, career, subjects, kme, liberal
         };
 
+        // 체크박스 인덱스 수집 (로컬 저장용)
+        const sub = [];
+        document.querySelectorAll('input[type="checkbox"]').forEach((cb, idx) => {
+            if (cb.checked) sub.push(idx);
+        });
+
+        // 로컬 저장 (기기에 남김)
+        try {
+            localStorage.setItem('soha_course_plan_2026', JSON.stringify({
+                name, career, sub, time: data.time
+            }));
+        } catch(e) {}
+
+        // 구글 시트 저장
         try {
             await fetch(SCRIPT_URL, {
                 method: 'POST',
@@ -394,7 +423,7 @@
                 body: JSON.stringify(data)
             });
             document.getElementById("saveTime").textContent = data.time;
-            alert(name + '님의 선택이 구글 시트에 저장되었습니다!');
+            alert(name + '님의 선택이 저장되었습니다!\n다음에 이 기기로 접속하면 선택이 복원됩니다.');
         } catch(e) {
             alert('저장 실패. 인터넷 연결을 확인해 주세요.');
         }
