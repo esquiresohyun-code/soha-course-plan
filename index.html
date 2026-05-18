@@ -388,28 +388,41 @@
         });
     }
 
-    function saveData() {
-        const name = document.getElementById("studentNameInput").value.trim() || "학생";
-        const sub = [];
-        document.querySelectorAll('input[type="checkbox"]').forEach((cb, idx) => {
-            if (cb.checked) sub.push(idx);
-        });
-        const time = new Date().toLocaleString('ko-KR');
-        const data = {
-            name: document.getElementById("studentNameInput").value,
-            career: document.getElementById("careerInput").value,
-            sub, time
-        };
+async function saveData() {
+  const SCRIPT_URL = https://script.google.com/macros/s/AKfycbzn-NzLn6-lIWy5x5kxwjez-n5IGm9pdu-f2aye7PvsNnsn0s1-eHHF2eTr3W_5zGGUvA/exec
+  const name = document.getElementById("studentNameInput").value.trim() || "학생";
+  const career = document.getElementById("careerInput").value.trim();
 
-        try {
-            localStorage.setItem('soha_course_plan_2026', JSON.stringify(data));
-            document.getElementById("saveTime").textContent = time;
-            
-            alert(name + "님의 진로와 과목 선택 데이터가 브라우저에 안전하게 저장되었습니다.");
-        } catch(e) {
-            alert("보안 설정 등으로 인해 브라우저에 저장할 수 없습니다.");
-        }
-    }
+  // 선택된 과목 이름 수집
+  const subjects = [];
+  document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+    const nameEl = cb.closest('label').querySelector('.sub-name');
+    if (nameEl) subjects.push(nameEl.textContent.trim());
+  });
+
+  // 학점 계산
+  let kme = 66, liberal = 0;
+  document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+    if (cb.dataset.kme) kme += parseInt(cb.value);
+    if (cb.dataset.lib === 'y') liberal += parseInt(cb.value);
+  });
+
+  const data = {
+    time: new Date().toLocaleString('ko-KR'),
+    name, career, subjects, kme, liberal
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+    document.getElementById("saveTime").textContent = data.time;
+    alert(name + '님의 선택이 구글 시트에 저장되었습니다!');
+  } catch(e) {
+    alert('저장 실패. 인터넷 연결을 확인해 주세요.');
+  }
+}
 </script>
 </body>
 </html>
