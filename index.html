@@ -44,6 +44,10 @@
         .tag-g5n  { background: #fef08a; color: #854d0e; }
         .tag-g3   { background: #feebc8; color: #c05621; }
         .tag-gp   { background: #e2e8f0; color: #4a5568; }
+        /* 유형 태그 */
+        .tag-il   { background: #e0f2fe; color: #0369a1; }
+        .tag-jin  { background: #fce7f3; color: #9d174d; }
+        .tag-yun  { background: #dcfce7; color: #166534; }
 
         .grade-section { margin-bottom: 30px; }
         .grade-title { font-size: 1.3rem; font-weight: 700; color: #2d3748; margin-bottom: 15px; padding-left: 10px; border-left: 5px solid #4299e1; display: flex; align-items: center; }
@@ -100,8 +104,12 @@
             
             <div class="form-row">
                 <div class="form-group">
-                    <label>👤 학번 및 이름</label>
-                    <input type="text" id="studentNameInput" placeholder="예: 10101 김소하">
+                    <label>👤 반 / 번호 / 이름</label>
+                    <div style="display:grid; grid-template-columns:1fr 1fr 2fr; gap:8px;">
+                        <input type="text" id="classInput" placeholder="반 (예: 1)">
+                        <input type="text" id="numberInput" placeholder="번호 (예: 15)">
+                        <input type="text" id="nameInput" placeholder="이름 (예: 김소하)">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>🎯 희망 진로</label>
@@ -129,6 +137,9 @@
             <div class="legend-item"><span class="tag tag-math">수학</span> 국영수(수학)</div>
             <div class="legend-item"><span class="tag tag-eng">영어</span> 국영수(영어)</div>
             <div class="legend-item"><span class="tag tag-lib">교양</span> 교양 학점</div>
+            <div class="legend-item"><span class="tag tag-il">일반</span> 일반선택</div>
+            <div class="legend-item"><span class="tag tag-jin">진로</span> 진로선택</div>
+            <div class="legend-item"><span class="tag tag-yun">융합</span> 융합선택</div>
             <div class="legend-item"><span class="tag tag-g5">5등급</span> 성취도5단계+5등급</div>
             <div class="legend-item"><span class="tag tag-g5n">5단계</span> 성취도5단계(등급X)</div>
             <div class="legend-item"><span class="tag tag-g3">3단계</span> 성취도3단계</div>
@@ -147,24 +158,23 @@
                             <span class="counter" id="cnt_2_1_t5" data-max="5" data-group="2_1_t5">0 / 5</span>
                         </div>
                         <div class="subject-grid">
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-kme="kor"><span class="sub-name">독서 토론과 글쓰기</span><span class="tags"><span class="tag tag-kor">국어</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-kme="math"><span class="sub-name">기하</span><span class="tags"><span class="tag tag-math">수학</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-kme="eng"><span class="sub-name">영미 문학 읽기</span><span class="tags"><span class="tag tag-eng">영어</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">세계시민과 지리</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">세계사</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">정치</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">국제 관계의 이해</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">현대사회와 윤리</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">물리학</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">화학</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">생명과학</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">지구과학</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">기술·가정</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">정보</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">중국어</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">일본어</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">한문</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">온마을캠퍼스1</span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-kme="kor"><span class="sub-name">독서 토론과 글쓰기</span><span class="tags"><span class="tag tag-kor">국어</span><span class="tag tag-yun">융합</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-kme="math"><span class="sub-name">기하</span><span class="tags"><span class="tag tag-math">수학</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-kme="eng"><span class="sub-name">영미 문학 읽기</span><span class="tags"><span class="tag tag-eng">영어</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">세계시민과 지리</span><span class="tags"><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">세계사</span><span class="tags"><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">정치</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">국제 관계의 이해</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">현대사회와 윤리</span><span class="tags"><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">물리학</span><span class="tags"><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">화학</span><span class="tags"><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">생명과학</span><span class="tags"><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5"><span class="sub-name">지구과학</span><span class="tags"><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">기술·가정</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">정보</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">중국어</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">일본어</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_1_t5" data-lib="y"><span class="sub-name">한문</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
                         </div>
                     </div>
                 </div>
@@ -177,25 +187,24 @@
                             <span class="counter" id="cnt_2_2_t5" data-max="5" data-group="2_2_t5">0 / 5</span>
                         </div>
                         <div class="subject-grid">
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-kme="kor"><span class="sub-name">문학과 영상</span><span class="tags"><span class="tag tag-kor">국어</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-kme="math"><span class="sub-name">경제 수학</span><span class="tags"><span class="tag tag-math">수학</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-kme="math"><span class="sub-name">인공지능 수학</span><span class="tags"><span class="tag tag-math">수학</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-kme="eng"><span class="sub-name">미디어 영어</span><span class="tags"><span class="tag tag-eng">영어</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">한국지리 탐구</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">동아시아 역사 기행</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">법과 사회</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">세계문제와 미래사회</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">윤리와 사상</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">역학과 에너지</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">물질과 에너지</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">세포와 물질대사</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">지구시스템과학</span><span class="tags"><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">생활과학 탐구</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">데이터 과학</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">중국어 회화</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">일본어 회화</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">한문 고전 읽기</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-g5">5등급</span></span></label>
-                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">온마을캠퍼스2</span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-kme="kor"><span class="sub-name">문학과 영상</span><span class="tags"><span class="tag tag-kor">국어</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-kme="math"><span class="sub-name">경제 수학</span><span class="tags"><span class="tag tag-math">수학</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-kme="math"><span class="sub-name">인공지능 수학</span><span class="tags"><span class="tag tag-math">수학</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-kme="eng"><span class="sub-name">미디어 영어</span><span class="tags"><span class="tag tag-eng">영어</span><span class="tag tag-yun">융합</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">한국지리 탐구</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">동아시아 역사 기행</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">법과 사회</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">세계문제와 미래사회</span><span class="tags"><span class="tag tag-yun">융합</span><span class="tag tag-g5n">5단계</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">윤리와 사상</span><span class="tags"><span class="tag tag-il">일반</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">역학과 에너지</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">물질과 에너지</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">세포와 물질대사</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5"><span class="sub-name">지구시스템과학</span><span class="tags"><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">생활과학 탐구</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">데이터 과학</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">중국어 회화</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">일본어 회화</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
+                            <label class="sub-item"><input type="checkbox" value="3" data-group="2_2_t5" data-lib="y"><span class="sub-name">한문 고전 읽기</span><span class="tags"><span class="tag tag-lib">교양</span><span class="tag tag-jin">진로</span><span class="tag tag-g5">5등급</span></span></label>
                         </div>
                     </div>
                 </div>
@@ -333,7 +342,9 @@
             const saved = localStorage.getItem('soha_course_plan_2026');
             if (!saved) return;
             const data = JSON.parse(saved);
-            if (data.name) document.getElementById("studentNameInput").value = data.name;
+            if (data.cls) document.getElementById("classInput").value = data.cls;
+            if (data.num) document.getElementById("numberInput").value = data.num;
+            if (data.nm)  document.getElementById("nameInput").value = data.nm;
             if (data.career) document.getElementById("careerInput").value = data.career;
             if (data.time) document.getElementById("saveTime").textContent = data.time;
             document.querySelectorAll('input[type="checkbox"]').forEach((cb, idx) => {
@@ -381,8 +392,15 @@
     }
 
     async function saveData() {
-        const name = document.getElementById("studentNameInput").value.trim() || "학생";
+        const cls = document.getElementById("classInput").value.trim();
+        const num = document.getElementById("numberInput").value.trim();
+        const nm  = document.getElementById("nameInput").value.trim() || "학생";
         const career = document.getElementById("careerInput").value.trim();
+
+        if (!cls || !num) {
+            alert('반과 번호를 입력해 주세요!');
+            return;
+        }
 
         const subjects = [];
         document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
@@ -396,10 +414,8 @@
             if (cb.dataset.lib === 'y') liberal += parseInt(cb.value);
         });
 
-        const data = {
-            time: new Date().toLocaleString('ko-KR'),
-            name, career, subjects, kme, liberal
-        };
+        const time = new Date().toLocaleString('ko-KR');
+        const data = { time, cls, num, nm, career, subjects, kme, liberal };
 
         // 체크박스 인덱스 수집 (로컬 저장용)
         const sub = [];
@@ -407,10 +423,10 @@
             if (cb.checked) sub.push(idx);
         });
 
-        // 로컬 저장 (기기에 남김)
+        // 로컬 저장
         try {
             localStorage.setItem('soha_course_plan_2026', JSON.stringify({
-                name, career, sub, time: data.time
+                cls, num, nm, career, sub, time
             }));
         } catch(e) {}
 
@@ -422,8 +438,8 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-            document.getElementById("saveTime").textContent = data.time;
-            alert(name + '님의 선택이 저장되었습니다!\n다음에 이 기기로 접속하면 선택이 복원됩니다.');
+            document.getElementById("saveTime").textContent = time;
+            alert(`${cls}반 ${num}번 ${nm}님의 선택이 저장되었습니다!\n다음에 이 기기로 접속하면 선택이 복원됩니다.`);
         } catch(e) {
             alert('저장 실패. 인터넷 연결을 확인해 주세요.');
         }
