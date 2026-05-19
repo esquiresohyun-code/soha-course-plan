@@ -327,7 +327,7 @@
 <div id="toast">✅ 과목 선택 계획이 저장되었습니다.</div>
 
 <script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOqbIqsLzCTSqM3T_O76RU4qVqHIzcZMFhZmNKenzfnarO-Molut1cIHbBqcBxo-qX3g/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwy3my3O49T5_10--VbOmeWath1M7_FMZAwUHePt9TMVPOuqbx0RGrULYvfElwCvBXjg/exec';
 
     window.onload = () => {
         document.querySelectorAll('input[type="checkbox"]').forEach(el => {
@@ -402,10 +402,14 @@
             return;
         }
 
-        const subjects = [];
+        const subjects2 = []; // 2학년 선택과목
+        const subjects3 = []; // 3학년 선택과목
         document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
             const nameEl = cb.closest('label').querySelector('.sub-name');
-            if (nameEl) subjects.push(nameEl.textContent.trim());
+            if (!nameEl) return;
+            const group = cb.dataset.group || '';
+            if (group.startsWith('2_')) subjects2.push(nameEl.textContent.trim());
+            else if (group.startsWith('3_')) subjects3.push(nameEl.textContent.trim());
         });
 
         let kme = 66, liberal = 0;
@@ -415,7 +419,7 @@
         });
 
         const time = new Date().toLocaleString('ko-KR');
-        const data = { time, cls, num, nm, career, subjects, kme, liberal };
+        const data = { time, cls, num, nm, career, subjects2, subjects3, kme, liberal };
 
         // 체크박스 인덱스 수집 (로컬 저장용)
         const sub = [];
